@@ -1,0 +1,147 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100px;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: large;
+    color: #2d3748;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Ağırlık Gösterge Alanı */
+.weight-display {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+.weight-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-width: 100px;
+}
+
+.weight-label {
+    font-size: x-small;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #718096;
+    margin-bottom: 4px;
+}
+
+.weight-value {
+    font-size: smaller;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+.left-weight .weight-value {color:#4299e1}
+.right-weight .weight-value {color: #ed8936;}
+
+/* Arka Plan */
+.scene {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 500px;
+}
+
+.seesaw-wrapper{
+    position: relative;
+    width: 400px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: center center;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    z-index: 2;
+}
+
+/* Tahta */
+.plank {
+    width: 400px;
+    height: 16px;
+    background: linear-gradient(180deg, #8B6914 0%, #6B4F12 100%);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.plank::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px 4px 0 0;
+}
+
+/* Destek Noktası */
+.pivot-base {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 36px solid #8B6914;
+    margin-top: -2px;
+    z-index:1;
+}
+
+/* Zemin */
+.ground {
+    width: 500px;
+    height: 75px;
+    background: linear-gradient(180deg, #68d391 0%, #48bb78 100%);
+    border-radius: 6px;
+    margin-top: 0;
+}
+
+/* Kontrol Butonları */
+
+.controls {
+    margin-top: 36px;
+}
+
+#reset-btn {
+    padding: 10px 32px;
+    font-size: small;
+    font-weight: 600;
+    background-color:#8f8a8a ;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#reset-btn:hover {
+    background-color: #423f3f;
+}
+
+#reset-btn:active {
+  transform: scale(0.97);
+}
