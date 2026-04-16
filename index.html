@@ -7,6 +7,32 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <h1>Seesaw Simulation</h1>
+
+  <div class="weight-display">
+    <div class="weight-box left-weight">
+      <span class="weight-label">Left</span>
+      <span class="weight-value" id="left-total">0 kg</span>
+    </div>
+    <div class="weight-box right-weight">
+      <span class="weight-label">Right</span>
+      <span class="weight-value" id="right-total">0 kg</span>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="seesaw-wrapper" id="seesaw-wrapper">
+      <div class="plank" id="plank"></div>
+    </div>
+    <div class="pivot-base"></div>
+    <div class="ground"></div>
+  </div>
+
+  <div class="controls">
+    <button id="reset-btn">Reset</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
