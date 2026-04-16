@@ -101,6 +101,8 @@ h1 {
 
 /* Destek Noktası */
 .pivot-base {
+    position: absolute;
+    bottom: -15px;
     width: 0;
     height: 0;
     border-left: 20px solid transparent;
