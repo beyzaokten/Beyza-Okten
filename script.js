@@ -96,8 +96,7 @@ const plank = document.getElementById('plank');
 
 plank.addEventListener('click',function(e){
     //Tıklama pozisyonu 
-    const rect = plank.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
+    const clickX = e.offsetX;
 
     const plankWidth = plank.offsetWidth; //400px
     const pivotX = plankWidth /2; //Merkez = 200px
