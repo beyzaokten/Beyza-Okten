@@ -1,5 +1,7 @@
 let objects = [];
 
+const dropSound = new Audio('drop.mp3');
+
 // Tork hesabı için obje ağırlığı x destek noktası uzaklığı
 function calculateTorques() {
     let leftTorque = 0;
@@ -50,8 +52,8 @@ function updateSeesaw(){
     const angle = calculateAngle(leftTorque, rightTorque);
 
     // Tahtayı döndür
-    const wrapper = document.getElementById('seesaw-wrapper');
-    wrapper.style.transform = `rotate(${angle}deg)`;
+    const wrapper = document.getElementById('plank');
+    plank.style.transform = `rotate(${angle}deg)`;
 
     let leftWeight = 0;
     let rightWeight = 0;
@@ -114,6 +116,9 @@ plank.addEventListener('click',function(e){
     renderObject(obj);
     updateSeesaw();
     saveToStorage();
+
+    dropSound.currentTime = 0;
+    dropSound.play();
     
 });
 
@@ -129,7 +134,7 @@ document.getElementById('reset-btn').addEventListener('click', function(){
     const weightEls = plank.querySelectorAll('.weight-object');
     weightEls.forEach(function(el) { el.remove(); });
 
-    document.getElementById('seesaw-wrapper').style.transform = 'rotate(0deg)';
+    plank.style.transform = 'rotate(0deg)';
     document.getElementById('left-total').textContent = '0 kg';
     document.getElementById('right-total').textContent = '0 kg';
 
