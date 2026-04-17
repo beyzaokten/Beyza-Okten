@@ -119,3 +119,19 @@ plank.addEventListener('click',function(e){
 
 // Sayfa açılınca yükler
 loadFromStorage();
+
+// Reset Butonu
+document.getElementById('reset-btn').addEventListener('click', function(){
+    objects = [];
+
+    //Ağırlıkları DOM'dan siler
+    const plank = document.getElementById('plank');
+    const weightEls = plank.querySelectorAll('.weight-object');
+    weightEls.forEach(function(el) { el.remove(); });
+
+    document.getElementById('seesaw-wrapper').style.transform = 'rotate(0deg)';
+    document.getElementById('left-total').textContent = '0 kg';
+    document.getElementById('right-total').textContent = '0 kg';
+
+    localStorage.removeItem('seesaw-objects');
+});
