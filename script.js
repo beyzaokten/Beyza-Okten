@@ -64,6 +64,26 @@ function updateSeesaw(){
     document.getElementById('right-total').textContent = rightWeight + ' kg';
 }
 
+// Local Storage
+function saveToStorage(){
+    localStorage.setItem('seesaw-objects', JSON.stringify(objects));
+}
+
+//Sayfa açıldığında kayıtlı veri yüklenir
+function loadFromStorage(){
+    const saved = localStorage.getItem('seesaw-objects');
+    if (!saved) return;
+
+    objects = JSON.parse(saved);
+
+    //Kaydedilen objeleri ekrana çiz
+    objects.forEach(function(obj){
+        renderObject(obj);
+    });
+
+    updateSeesaw();
+}
+
 //Click Handler
 const plank = document.getElementById('plank');
 
@@ -91,8 +111,11 @@ plank.addEventListener('click',function(e){
     };
 
     objects.push(obj);
-
     renderObject(obj);
     updateSeesaw();
+    saveToStorage();
     
-})
+});
+
+// Sayfa açılınca yükler
+loadFromStorage();
