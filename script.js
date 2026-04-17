@@ -64,6 +64,10 @@ function updateSeesaw(){
 
     document.getElementById('left-total').textContent = leftWeight + ' kg';
     document.getElementById('right-total').textContent = rightWeight + ' kg';
+
+    const diff = (rightTorque - leftTorque).toFixed(1);
+    const sign = diff > 0 ? '+' : '';
+    document.getElementById('torque-diff').textContent = sign + diff;
 }
 
 // Local Storage
@@ -137,6 +141,7 @@ document.getElementById('reset-btn').addEventListener('click', function(){
     plank.style.transform = 'rotate(0deg)';
     document.getElementById('left-total').textContent = '0 kg';
     document.getElementById('right-total').textContent = '0 kg';
+    document.getElementById('torque-diff').textContent = '0';
 
     localStorage.removeItem('seesaw-objects');
 });
