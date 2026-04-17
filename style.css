@@ -26,8 +26,10 @@ h1 {
 /* Ağırlık Gösterge Alanı */
 .weight-display {
     display: flex;
-    gap: 60px;
+    gap: clamp(12px, 5vw, 60px);
     margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .weight-box {
@@ -36,9 +38,9 @@ h1 {
     align-items: center;
     background: rgba(255,255,255,0.7);
     border-radius: 10px;
-    padding: 12px 28px;
+    padding: 12px clamp(12px, 3vw, 28px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    min-width: 100px;
+    min-width: 80px;
     backdrop-filter: blur(10px);
 }
 
@@ -65,13 +67,13 @@ h1 {
     flex-direction: column;
     align-items: center;
     position: relative;
-    width: 500px;
+    width: min(500px,95vw);
     margin-top: 150px;
 }
 
 .seesaw-wrapper{
     position: relative;
-    width: 400px;
+    width: min(400px, 85vw);
     height: 60px;
     display: flex;
     align-items: center;
@@ -82,7 +84,7 @@ h1 {
 
 /* Tahta */
 .plank {
-    width: 400px;
+    width: min(400px, 85vw);
     height: 16px;
     background: linear-gradient(180deg, #8B6914 0%, #6B4F12 100%);
     border-radius: 4px;
@@ -186,4 +188,18 @@ body::before{
 .torque-display .weight-value {
     color: #805ad5;
     font-size: 0.75rem;
+}
+
+@media(max-width:480px){
+    h1{
+        font-size: 1rem;
+    }
+
+    .scene{
+        margin-top: 40px;
+    }
+
+    .controls{
+        margin-top: 20px;
+    }
 }

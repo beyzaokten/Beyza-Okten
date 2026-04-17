@@ -40,7 +40,8 @@ function renderObject(obj){
     const b = Math.round(255 - ratio * 150);
     el.style.backgroundColor = `rgb(${r},${g},${b})`;
 
-    el.style.left = (obj.clickX - 20) + 'px';
+    const currentWidth = plank.offsetWidth;
+    el.style.left = (obj.clickRatio * currentWidth - 20) + 'px';
     el.style.top = '-48px'
 
     el.innerHTML = `<span>${obj.weight}kg</span>`;
@@ -112,7 +113,8 @@ plank.addEventListener('click',function(e){
         weight:weight,
         distance:distance,
         side:side,
-        clickX:clickX
+        clickX:clickX,
+        clickRatio: clickX/plankWidth
 
     };
 
@@ -144,4 +146,17 @@ document.getElementById('reset-btn').addEventListener('click', function(){
     document.getElementById('torque-diff').textContent = '0';
 
     localStorage.removeItem('seesaw-objects');
+});
+
+//Ekran boyutuna göre obje konumlandırma
+window.addEventListener('resize',function(){
+    const currentWidth = plank.offsetWidth;
+    const els = plank.querySelectorAll('.weight-object');
+    els.forEach(function(el){
+        const id = parseInt(el.getAttribute('data-id'));
+        const obj = objects.find(function(o) {return o.id === id;});
+        if(obj){
+            el.style.left=(obj.clickRatio * currentWidth - 20) + 'px';
+        }
+    });
 });
