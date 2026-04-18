@@ -35,3 +35,7 @@ Positive torque difference means the right side is heavier, negative means the l
 - Tilt angle is capped at ±30° to keep the simulation readable
 - `e.offsetX` is used for click position this gives the correct local coordinate even when the plank is rotated
 - Object positions are saved as a ratio (0–1) relative to plank width, so they reposition correctly on window resize
+
+  ## AI Usage
+
+- AI tools were used occasionally for syntax reference and debugging.
