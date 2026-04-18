@@ -4,7 +4,7 @@ A visual seesaw simulation built with pure HTML, CSS, and JavaScript. No librari
 
 ## Live Demo
 
-[View on GitHub Pages](https://beyzaokten.github.io/Beyza-Okten)
+[View on GitHub Pages](https://beyzaokten.github.io/seesaw-simulation-beyza-okten/)
 
 ## How It Works
 
@@ -16,26 +16,46 @@ The seesaw tilts based on the torque difference between left and right sides.
 
 Positive torque difference means the right side is heavier, negative means the left side is heavier.
 
+## Thought Process & Design Decisions
+
+The main goal was to create a simple but accurate physical simulation using only DOM and CSS transforms.
+
+- I chose to represent torque using a simplified linear formula to keep calculations readable and performant.
+- The pivot is fixed at the center to maintain symmetry and reduce complexity.
+- I used `transform: rotate()` instead of complex physics engines to stay within the "pure JavaScript" constraint.
+- Click position is calculated using `offsetX` to ensure correct placement even when the plank is rotated.
+- Object positions are stored as ratios instead of absolute pixels, making the layout responsive.
+
+---
+
+## Trade-offs & Limitations
+
+- The physics model is simplified and does not include real-world dynamics such as momentum or friction.
+- The tilt speed is controlled via CSS transitions.
+- Objects do not collide or interact with each other.
+- Sound effects are basic and not dynamically adjusted.
+
+These decisions were made to keep the implementation simple, readable, and aligned with the "no libraries" requirement.
+
+---
+
 ## Features
 
 - Click-to-drop objects with random weights (1–10 kg)
-- Objects are color-coded by weight — light blue for low, dark orange for high
-- Smooth, slow tilt animation using CSS transitions
-- Left / right total weight display
-- Live torque difference indicator with +/- sign
-- Object positions stored as ratios — resize the window and objects stay in place
-- State saved in localStorage — progress survives page refresh
-- Reset button clears all objects and resets the board
-- Drop sound effect on each placement
-- Responsive layout
+- Smooth tilt animation
+- Torque-based balancing system
+- Left/right total weight display
+- Persistent state using localStorage
+- Reset functionality
+- Responsive design
 
-## Design Decisions
+---
 
-- Pivot is fixed at the exact center of the plank
-- Tilt angle is capped at ±30° to keep the simulation readable
-- `e.offsetX` is used for click position this gives the correct local coordinate even when the plank is rotated
-- Object positions are saved as a ratio (0–1) relative to plank width, so they reposition correctly on window resize
+## AI Usage
 
-  ## AI Usage
+AI tools were used for:
 
-- AI tools were used occasionally for syntax reference and debugging.
+- Debugging JavaScript logic 
+- Improving code structure and readability
+- Getting suggestions for UI improvements and animations
+---
